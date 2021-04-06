@@ -1,0 +1,9 @@
+# Networking services across AWS accounts and VPCs<a name="networking-connecting-services-crossaccount"></a>
+
+Large organizations generally have multiple teams and divisions that deploy services independently into separate VPCs inside a shared AWS account, or their own AWS accounts with their own VPCs\. In these scenarios, you need some extra networking components to help you route traffic between these separate VPCs\. There are multiple AWS services that can help provide a solution\.
++ AWS Transit Gateway is the first place to start\. It serves as a central hub for routing your connections between Amazon VPCs, AWS accounts, and on\-premises networks\. For more information, see [What is a transit gateway?](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) in the *Amazon VPC Transit Gateways Guide*\.
++ Amazon VPC \+ VPN support helps you to create site to site VPN connections, for connecting on\-premise networks to your VPC\. For more information, see [What is AWS Site\-to\-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site\-to\-Site VPN User Guide*\.
++ Amazon VPC peering helps you to connect multiple VPCs, either in the same account, or cross account\. For more information, see [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) in the *Amazon VPC Peering Guide*\.
++ Shared VPCs allow you to use a VPC and VPC subnets across multiple AWS accounts\. For more information, see [Working with shared VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html) in the *Amazon VPC User Guide*\.
+
+Refer to the documentation for the services listed above for guidance on setting up cross\-account networking\.
