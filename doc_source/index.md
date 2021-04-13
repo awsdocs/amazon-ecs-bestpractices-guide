@@ -1,4 +1,4 @@
-# Amazon ECS Best Practices Best Practices Guide
+# Amazon Elastic Container Service Best Practices Guide
 
 -----
 *****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
@@ -16,8 +16,8 @@ Amazon's trademarks and trade dress may not be used in
 ## Contents
 + [Introduction](intro.md)
 + [Best Practices - Networking](networking.md)
-   + [Connecting to the Internet](networking-outbound.md)
-   + [Receiving inbound connections from the Internet](networking-inbound.md)
+   + [Connecting to the internet](networking-outbound.md)
+   + [Receiving inbound connections from the internet](networking-inbound.md)
    + [Choosing a network mode](networking-networkmode.md)
    + [Connecting to AWS services from inside your VPC](networking-connecting-vpc.md)
    + [Networking between Amazon ECS services in a VPC](networking-connecting-services.md)
