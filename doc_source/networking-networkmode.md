@@ -35,7 +35,7 @@ To solve this problem, consider using the `bridge` network mode with a dynamic p
 
 ![\[Diagram showing architecture of a network using bridge network mode with dynamic port mapping.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/networkmode-bridge-dynamic.png)
 
-By not specifying a host port in the port mapping, you can have Docker choose a random, unused port from the ephemeral port range and assign it as the public host port for the container\. For example, the Node\.js application listening on port `3000` on the container might be assigned a random high number port such as `47760` on the Amazon EC2 host\. Doing this means that you can run multiple copies of that container on the host\. Moreover, each container can be assigned its own port on the host\. FEach copy of the container receives traffic on port `3000`\. However, clients that send traffic to these containers use the randomly assigned host ports\.
+By not specifying a host port in the port mapping, you can have Docker choose a random, unused port from the ephemeral port range and assign it as the public host port for the container\. For example, the Node\.js application listening on port `3000` on the container might be assigned a random high number port such as `47760` on the Amazon EC2 host\. Doing this means that you can run multiple copies of that container on the host\. Moreover, each container can be assigned its own port on the host\. Each copy of the container receives traffic on port `3000`\. However, clients that send traffic to these containers use the randomly assigned host ports\.
 
 Amazon ECS helps you to keep track of the randomly assigned ports for each task\. It does this by automatically updating load balancer target groups and AWS Cloud Map service discovery to have the list of task IP addresses and ports\. This makes it easier to use services operating using `bridge` mode with dynamic ports\.
 
@@ -49,7 +49,7 @@ With the `awsvpc` network mode, Amazon ECS creates and manages an Elastic Networ
 
 ![\[Diagram showing architecture of a network using the AWSVPC network mode.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/networkmode-awsvpc.png)
 
-In the preceding example, the Amazon EC2 instance is assigned to an ENI\. The ENI represents that the IP address of the EC2 instance used for network communications at the host level\. Each task also has a corresponding ENI and an private IP address\. Because each ENI is separate, each container can bind to port `80` on the task ENI\. Therefore, you don't need to keep track of port numbers\. Instead, you can send traffic to port `80` at the IP address of the task ENI\.
+In the preceding example, the Amazon EC2 instance is assigned to an ENI\. The ENI represents the IP address of the EC2 instance used for network communications at the host level\. Each task also has a corresponding ENI and an private IP address\. Because each ENI is separate, each container can bind to port `80` on the task ENI\. Therefore, you don't need to keep track of port numbers\. Instead, you can send traffic to port `80` at the IP address of the task ENI\.
 
 The advantage of using the `awsvpc` network mode is that each task has a seperate security group to allow or deny traffic\. This means you have greater flexibility to control communications between tasks and services at a more granular level\. You can also configure a task to deny incoming traffic from another task located on the same host\.
 
