@@ -23,4 +23,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Networking between Amazon ECS services in a VPC](networking-connecting-services.md)
    + [Networking services across AWS accounts and VPCs](networking-connecting-services-crossaccount.md)
    + [Optimizing and troubleshooting](networking-troubleshooting.md)
++ [Best Practices - Persistent storage](storage.md)
+   + [Amazon EFS volumes](storage-efs.md)
+   + [Docker volumes](storage-dockervolumes.md)
+   + [Amazon FSx for Windows File Server](storage-fsx.md)
 + [Document history for the Amazon ECS Best Practices Guide](doc-history.md)
