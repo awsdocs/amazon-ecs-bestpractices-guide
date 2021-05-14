@@ -1,0 +1,3 @@
+# Choosing Fargate task sizes<a name="fargate-task-size"></a>
+
+If you run your tasks on AWS Fargate, you must declare task CPU and memory limits in your task definition\. ECS uses these limits to determine the Fargate instance type to run your task on\. The limits must be greater than or equal to any reservations you have declared\. In most cases, you can set them to the sum of each container’s reservations declared in your task definition, and rounded up to the nearest Fargate instance size\. For more information about the available sizes, see [Task CPU and memory](AmazonECS/latest/developerguide/AWS_Fargate.html#fargate-tasks-size) in the *Amazon Elastic Container Service Developer Guide*\. 

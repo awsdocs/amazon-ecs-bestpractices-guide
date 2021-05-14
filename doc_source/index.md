@@ -1,7 +1,7 @@
 # Amazon Elastic Container Service Best Practices Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -23,6 +23,14 @@ Amazon's trademarks and trade dress may not be used in
    + [Networking between Amazon ECS services in a VPC](networking-connecting-services.md)
    + [Networking services across AWS accounts and VPCs](networking-connecting-services-crossaccount.md)
    + [Optimizing and troubleshooting](networking-troubleshooting.md)
++ [Best Practices - Auto scaling and capacity management](capacity.md)
+   + [Determining task size](capacity-tasksize.md)
+   + [Configuring service auto scaling](capacity-autoscaling.md)
+   + [Capacity and availability](capacity-availability.md)
+   + [Cluster capacity](capacity-cluster.md)
+   + [Choosing Fargate task sizes](fargate-task-size.md)
+   + [Choosing the Amazon EC2 instance type](ec2-instance-type.md)
+   + [Using Amazon EC2 Spot and FARGATE_SPOT](ec2-and-fargate-spot.md)
 + [Best Practices - Persistent storage](storage.md)
    + [Amazon EFS volumes](storage-efs.md)
    + [Docker volumes](storage-dockervolumes.md)

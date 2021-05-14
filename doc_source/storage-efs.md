@@ -32,7 +32,7 @@ To mount an Amazon EFS file system in your container, you can reference the Amaz
 
 Amazon EFS stores data redundantly across multiple Availability Zones within a single Region\. An Amazon ECS task mounts the Amazon EFS file system by using an Amazon EFS mount target in its Availability Zone\. An Amazon ECS task can only mount an Amazon EFS file system if the Amazon EFS filesystem has a mount target in the Availability Zone the task runs in\. Therefore, a best practice is to create Amazon EFS mount targets in all the Availability Zones that you plan to host Amazon ECS tasks in\.
 
-![\[Diagram showing the architecture of a task using an Amazon EFS file system.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/storage-efs.jpg)
+![\[Diagram showing the architecture of a task using an Amazon EFS file system.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/storage-efs.png)
 
 For more information, see [Amazon EFS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html) in the *Amazon Elastic Container Service Developer Guide*\.
 

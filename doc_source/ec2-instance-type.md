@@ -1,0 +1,7 @@
+# Choosing the Amazon EC2 instance type<a name="ec2-instance-type"></a>
+
+If you use Amazon EC2 to provide capacity for your ECS cluster, there is a large selection of instance types from which to choose\. All Amazon EC2 instance types and families are compatible with ECS\. 
+
+To determine which instance types you can use, start by eliminating instance the types or instance families that do not meet your application’s requirements\. For example, if your application requires a GPU, you can exclude any instance types that do not have a GPU\. You should consider other requirements, such as CPU architecture, network throughput, and whether any instance storage is needed\. Next, examine the amount of CPU and memory provided by each instance type\. The CPU and memory must be large enough to hold at least one replica of the task you wish to run\. 
+
+You can choose from the instance types that are compatible with your application\. Larger instances allow you to launch more tasks at the same time, while smaller instances allow you to scale out in a more fine\-grained way to save cost\. You do not need to choose a single Amazon EC2 instance type that will fit all of the applications in your cluster\. You can create multiple Auto Scaling Groups, that each have a different instance type, and then create an Amazon EC2 Capacity Provider for each one\. Then, in your task or service’s Capacity Provider strategy, you can select the Capacity Provider that best suits its needs\. 
