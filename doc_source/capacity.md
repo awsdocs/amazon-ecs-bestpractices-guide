@@ -1,8 +1,8 @@
 # Best Practices \- Auto scaling and capacity management<a name="capacity"></a>
 
-Amazon ECS is used to run containerized application workloads of all sizes, from minimal testing environments to large production environments operating at global scale\.
+Amazon ECS is used to run containerized application workloads of all sizes\. This includes both the extremes of minimal testing environments and large production environments operating at a global scale\.
 
-With Amazon ECS, like all AWS services, you pay only for what you use\. When architected appropriately, you can save cost by having your application consume only the resources it needs at the time it needs them\. This best practices guide is designed to help you run your Amazon ECS workloads in a way that meets your service\-level objectives while operating in a cost\-effective manner\.
+With Amazon ECS, like all AWS services, you pay only for what you use\. When architected appropriately, you can save costs by having your application consume only the resources that it needs at the time that it needs them\. This best practices guide shows how to run your Amazon ECS workloads in a way that meets your service\-level objectives while still operating in a cost\-effective manner\.
 
 **Topics**
 + [Determining task size](capacity-tasksize.md)

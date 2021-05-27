@@ -6,5 +6,6 @@ This guide will be revised regularly to incorporate new Amazon ECS best practice
 
 **Topics**
 + [Best Practices \- Networking](networking.md)
-+ [Best Practices \- Persistent storage](storage.md)
 + [Best Practices \- Auto scaling and capacity management](capacity.md)
++ [Best Practices \- Persistent storage](storage.md)
++ [Best Practices \- Security](security.md)
