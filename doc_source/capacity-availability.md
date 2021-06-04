@@ -4,25 +4,13 @@ Application availability is crucial for providing an error\-free experience and 
 
 As with task sizes, capacity and availability present certain trade\-offs you must consider\. Ideally, capacity would be perfectly aligned with demand\. There would always be just enough capacity to serve requests and process jobs to meet Service Level Objectives \(SLOs\) including a low latency and error rate\. Capacity would never be too high, leading to excessive cost; nor would it never be too low, leading to high latency and error rates\.
 
-Autoscaling is a latent process\. First, real\-time metrics must be delivered to CloudWatch\. They must then be aggregated for analysis, which can take up to several minutes depending on the granularity of the metric\. Then, CloudWatch compares the metrics against alarm thresholds to identify a shortage or excess of resources\. To prevent instability, alarms are usually configured to require the threshold be crossed for a few minutes before firing\. Finally, it takes time to provision new tasks and to terminate tasks that are no longer needed\.
-
-Because of these delays, it is important to maintain some headroom by overprovisioning to accommodate short\-term bursts in demand\. This will allow your application to service additional requests without becoming saturated\. A good general rule is to set a scaling target between 60\-80% of utilization\. This will allow your application to handle bursts of extra demand while additional capacity is being provisioned\.
-
-Another reason to overprovision is to quickly respond to Availability Zone failures\. AWS recommends that production workloads be served from multiple Availability Zones\. Should an Availability Zone failure occur, tasks running in the remaining Availability Zones will serve demand\. If your application runs in two Availability Zones, then you will need to double your normal task count in order to provide immediate capacity during a failure\. If your application runs in three Availability Zones, then you should run 1\.5 times your normal task count \(three tasks for every two that are needed for ordinary serving\)\.
-
-## Maximizing scaling speed<a name="capacity-availability-speed"></a>
-
-Application availability is important for providing a fault\-free experience and for minimizing application latency\. Availability depends on having resources that are accessible and have enough capacity to meet demand\. AWS provides several mechanisms to manage availability\. For applications that are hosted on Amazon ECS, these mechanisms include autoscaling and Availability Zones\. Autoscaling manages the number of tasks or instances based on metrics you define, whereas Availability Zones can be used to host your application in isolated yet geographically\-close locations\.
-
-As with task sizes, capacity and availability present certain trade\-offs\. You should be fully aware of these trade\-offs\. In the best\-case scenario, capacity perfectly aligns with demand\. If this is the case, there's always enough capacity to serve requests and process jobs, without any excess\. This ensures that you can meet the service\-level objectsof low latency and a low error rate\. Too much capacity can be expensive, and too little can lead to issues of high latency and error rates\.
-
 Autoscaling is a latent process\. First, real\-time metrics must be delivered to CloudWatch\. Then, they need to be aggregated for analysis, which can take up to several minutes depending on the granularity of the metric\. CloudWatch compares the metrics against alarm thresholds to identify a shortage or excess of resources\. To prevent instability, configure alarms to require the set threshold be crossed for a few minutes before the alarm goes off\. It also takes time to provision new tasks and to terminate tasks that are no longer needed\.
 
 Because of these potential delays in the system described, it's important that you maintain some headroom by overprovisioning\. Doing this can help accommodate short\-term bursts in demand\. This also helps your application to service additional requests without reaching saturation\. As a good practice, you can set your scaling target between 60\-80% of utilization\. This helps your application better handle bursts of extra demand while additional capacity is still in the process of being provisioned\.
 
 Another reason we recommend that you overprovision is so that you can quickly respond to Availability Zone failures\. AWS recommends that production workloads be served from multiple Availability Zones\. This is because, if an Availability Zone failure occurs, your tasks that are running in the remaining Availability Zones can still serve the demand\. If your application runs in two Availability Zones, you need to double your normal task count\. This is so that you can provide immediate capacity during any potential failure\. If your application runs in three Availability Zones, we recommend that you run 1\.5 times your normal task count\. That is, run three tasks for every two that are needed for ordinary serving\.
 
-### Maximizing scaling speed<a name="capacity-availability-speed"></a>
+## Maximizing scaling speed<a name="capacity-availability-speed"></a>
 
 Autoscaling is a reactive process that takes time to take effect\. However, there are some ways to help minimize the time that's needed to scale out\.
 
@@ -47,7 +35,7 @@ If you're using Amazon EC2 instances to provide cluster capacity, consider the f
 
 **Use bridge network mode for tasks running on Amazon EC2 instances\.** Tasks that use `bridge` network mode on Amazon EC2 start faster than tasks that use the `awsvpc` network mode\. When `awsvpc` network mode is used, Amazon ECS attaches an elastic network interface \(ENI\) to the instance before launching the task\. This introduces additional latency\. There are several tradeoffs for using bridge networking though\. These tasks don't get their own security group, and there are some implications for load balancing\. For more information, see [Load balancer target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html) in the *Elastic Load Balancing User Guide*\.
 
-### Handling demand shocks<a name="capacity-availability-shocks"></a>
+## Handling demand shocks<a name="capacity-availability-shocks"></a>
 
 Some applications experience sudden large shocks in demand\. This happens for a variety of reasons: a news event, big sale, media event, or some other event that goes viral and causes traffic to quickly and significantly increase in a very short span of time\. If unplanned, this can cause demand to quickly outstrip available resources\.
 

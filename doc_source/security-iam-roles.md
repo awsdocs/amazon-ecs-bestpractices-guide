@@ -105,7 +105,7 @@ We recommend that you do the following when setting up your task IAM roles and p
 
 ### Block access to Amazon EC2 metadata<a name="security-iam-roles-recommendations-ec2-metadata"></a>
 
-When you run your tasks on Amazon EC2 instances, iwe strongly recommend that you block access to Amazon EC2 metadata to prevent your containers from inheriting the role assigned to those instances\. If your applications have to call an AWS API action, use IAM roles for tasks instead\.
+When you run your tasks on Amazon EC2 instances, we strongly recommend that you block access to Amazon EC2 metadata to prevent your containers from inheriting the role assigned to those instances\. If your applications have to call an AWS API action, use IAM roles for tasks instead\.
 
 To prevent tasks running in **bridge** mode from accessing Amazon EC2 metadata, run the following command or update the instance's user data\. For more instruction on updating the user data of an instance, see this [AWS Support Article](https://aws.amazon.com/premiumsupport/knowledge-center/ecs-container-ec2-metadata/)\. For more information about the task definition bridge mode, see [task definition network mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#network_mode)\.
 

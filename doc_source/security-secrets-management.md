@@ -24,7 +24,7 @@ Tasks that reference a secret from AWS Secrets Manager or Amazon EC2 Systems Man
 **Important**  
 Secrets that are referenced in tasks aren't rotated automatically\. If your secret changes, you must force a new deployment or launch a new task to retrieve the latest secret value\. For more information, see the following topics:  
 [AWS Secrets Manager: Injecting data as environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-envvar)
-[Amazon EC2 Systems Manager Parameter Store: Injecting data as environment variables](https://docs.aws.amazon.com/mazonECS/latest/developerguide/specifying-sensitive-data-parameters.html#secrets-envvar-parameters)
+[Amazon EC2 Systems Manager Parameter Store: Injecting data as environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-logconfig)
 
 ### Retrieving data from an encrypted Amazon S3 bucket<a name="security-secrets-management-recommendations-encrypted-s3-buckets"></a>
 
