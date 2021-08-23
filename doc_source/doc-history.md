@@ -4,6 +4,7 @@ The following table describes the documentation releases for the Amazon ECS Best
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Deployment best practices](#doc-history) | Added best practices for speeding up Amazon ECS deployments\. | August 10, 2021 | 
 | [Security best practices](#doc-history) | Added best practices for security management for Amazon ECS workloads\. | May 26, 2021 | 
 | [Auto scaling and capacity management best practices](#doc-history) | Added best practices for auto scaling and capacity management for Amazon ECS workloads\. | May 14, 2021 | 
 | [Persistent storage best practices](#doc-history) | Added best practices for persistent storage for Amazon ECS workloads\. | May 7, 2021 | 

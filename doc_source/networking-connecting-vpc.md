@@ -13,7 +13,7 @@ Using a NAT gateway is the easiest way to ensure that your Amazon ECS tasks can 
 ![\[Diagram showing architecture of a network using a NAT gateway.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/natgateway.png)
 
 The following are the disadvantages to using this approach:
-+ You can't limit what destinations the NAT gateway can communicate with\. You also can't limit which destinations your backend tire can communicate to without distrupting all outbound communications from your VPC\.
++ You can't limit what destinations the NAT gateway can communicate with\. You also can't limit which destinations your backend tire can communicate to without disrupting all outbound communications from your VPC\.
 + NAT gateways charge for every GB of data that passes through\. If you use the NAT gateway for downloading large files from Amazon S3, or doing a high volume of database queries to DynamoDB, you're charged for every GB of bandwidth\. Additionally, NAT gateways support 5 Gbps of bandwidth and automatically scale up to 45 Gbps\. If you route through a single NAT gateway, applications that require very high bandwidth connections might encounter networking constraints\. As a workaround, you can divide your workload across multiple subnets and give each subnet its own NAT gateway\.
 
 ## AWS PrivateLink<a name="networking-connecting-privatelink"></a>
@@ -24,7 +24,7 @@ One of the technologies used to accomplish this is the VPC endpoint\. A VPC endp
 
 The following diagram shows how communication to AWS services works when you are using VPC endpoints instead of an internet gateway\. AWS PrivateLink provisions elastic network interfaces \(ENIs\) inside of the subnet, and VPC routing rules are used to send any communication to the service hostname through the ENI, directly to the destination AWS service\. This traffic no longer needs to use the NAT gateway or internet gateway\.
 
-![\[Diagram showing architecture of a network using AWS PrivateLink.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/endpointaccess-multiple.png)
+![\[Diagram showing architecture of a network using AWS PrivateLink\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/endpointaccess-multiple.png)
 
 The following are some of the common VPC endpoints that are used with the Amazon ECS service\.
 + [S3 gateway VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)

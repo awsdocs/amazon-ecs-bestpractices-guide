@@ -36,7 +36,7 @@ However, you can reduce overhead costs by having multiple services share a load 
 
 ## Using a service mesh<a name="networking-connecting-services-appmesh"></a>
 
-AWS App Mesh is a service mesh that can help you manage a large number of services and have better control of how traffic gets routed among services\. App Mesh functions as a intermiediary between basic service discovery and load balancing\. With App Mesh, applications don't directly interact with each other, but they also don’t use a centralized load balancer either\. Instead, each copy of your task is accompanied by an Envoy proxy sidecar\. For more information, see [What is AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) in the *AWS App Mesh User Guide*\.
+AWS App Mesh is a service mesh that can help you manage a large number of services and have better control of how traffic gets routed among services\. App Mesh functions as an intermediary between basic service discovery and load balancing\. With App Mesh, applications don't directly interact with each other, but they also don’t use a centralized load balancer either\. Instead, each copy of your task is accompanied by an Envoy proxy sidecar\. For more information, see [What is AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) in the *AWS App Mesh User Guide*\.
 
 ![\[Diagram showing architecture of a network using a service mesh.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/appmesh.png)
 

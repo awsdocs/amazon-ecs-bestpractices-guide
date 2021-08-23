@@ -1,11 +1,12 @@
 # Introduction<a name="intro"></a>
 
-Amazon Elastic Container Service \(Amazon ECS\) is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster\. This guide covers many of the most important operational best practices while also explaining core topics underpinning how Amazon ECS based applications work\. The goal is to provide a concrete, actionable approach to operating and troubleshooting Amazon ECS based applications\.
+Amazon Elastic Container Service \(Amazon ECS\) is a highly scalable and fast container management service that you can use to manage containers on a cluster\. This guide covers many of the most important operational best practices for Amazon ECS\. It also describes several core concepts that are involved in how Amazon ECS based applications work\. The goal is to provide a concrete and actionable approach to operating and troubleshooting Amazon ECS based applications\.
 
-This guide will be revised regularly to incorporate new Amazon ECS best practices\. If you have any questions or comments about any of the content in this guide, raise an issue in the GitHub repository\. For more information, see [Amazon ECS Best Practices Guide](https://github.com/awsdocs/amazon-ecs-bestpractices-guide) on GitHub\.
+This guide is revised regularly to incorporate new Amazon ECS best practices as they're established\. If you have any questions or comments about any of the content in this guide, raise an issue in the GitHub repository\. For more information, see [Amazon ECS Best Practices Guide](https://github.com/awsdocs/amazon-ecs-bestpractices-guide) on GitHub\.
 
 **Topics**
 + [Best Practices \- Networking](networking.md)
 + [Best Practices \- Auto scaling and capacity management](capacity.md)
 + [Best Practices \- Persistent storage](storage.md)
++ [Best Practices \- Speeding up deployments](deployment.md)
 + [Best Practices \- Security](security.md)

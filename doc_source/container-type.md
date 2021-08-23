@@ -1,0 +1,3 @@
+# Container image type<a name="container-type"></a>
+
+The time that it takes a container to start up varies, based on the underlying container image\. For example, a fatter image \(full versions of Debian, Ubuntu, and Amazon1/2\) might take longer to start up because there are a more services that run in the containers compared to their respective slim versions \(Debian\-slim, Ubuntu\-slim, and Amazon\-slim\) or smaller base images \(Alpine\)\.

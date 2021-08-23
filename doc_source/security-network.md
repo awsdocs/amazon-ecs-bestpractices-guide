@@ -28,7 +28,7 @@ Encrypting network traffic prevents unauthorized users from intercepting and rea
 
   This involves deploying a TLS certificate with the task\. This can either be a self\-signed certificate or a certificate from a trusted certificate authority\. You can obtain the certificate by referencing a secret for the certificate\. Otherwise, you can choose to run an container that issues a Certificate Signing Request \(CSR\) to ACM and then mounts the resulting secret to a shared volume\.
   + [Maintaining transport layer security all the way to your containers using the Network Load Balancer with Amazon ECS part 1](http://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-using-the-network-load-balancer-with-amazon-ecs/)
-  + [Maintaining Transport Layer Security \(TLS\) all the way to your container part 2: Using AWS Certificate Manager Private Certificate Authority](http://aws.amazon.com/blogs/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/)
+  + [Maintaining Transport Layer Security \(TLS\) all the way to your container part 2: Using AWS Certificate Manager Private Certificate Authority](http://aws.amazon.com/blogs/compute/maintaining-transport-layer-security-all-the-way-to-your-container-part-2-using-aws-certificate-manager-private-certificate-authority/)
 
 ## Task networking<a name="security-network-task-networking"></a>
 

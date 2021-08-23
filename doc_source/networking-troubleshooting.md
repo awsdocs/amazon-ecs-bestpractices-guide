@@ -1,6 +1,6 @@
 # Optimizing and troubleshooting<a name="networking-troubleshooting"></a>
 
-The following services and features can help you to gain insights about your network and service configurations\. You can use this information to troubleshoot networking issues and better optimize your servcies\.
+The following services and features can help you to gain insights about your network and service configurations\. You can use this information to troubleshoot networking issues and better optimize your services\.
 
 ## CloudWatch Container Insights<a name="networking-troubleshooting-containerinsights"></a>
 
@@ -14,7 +14,7 @@ AWS X\-Ray is a tracing service that you can use to collect information about th
 
 You can also explore AWS X\-Ray graphs of how your services network with each other\. Or, use them to explore aggregate statistics about how each service\-to\-service link is performing\. Last, you can dive deeper into any specific transaction to see how segments representing network calls are associated with that particular transaction\.
 
-![\[Diagram showing architecture of an X-Ray timeline.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/xray-timeline.png)
+![\[Diagram showing architecture of an X-Ray time line.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/xray-timeline.png)
 
 You can use these features to identify if there's a networking bottleneck or if a specific service within your network isn't performing as expected\.
 

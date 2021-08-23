@@ -21,7 +21,7 @@ An Application Load Balancer has the following advantages\.
 + SSL/TLS termination — An Application Load Balancer can sustain secure HTTPS communication and certificates for communications with clients\. It can optionally terminate the SSL connection at the load balancer level so that you don’t have to handle certificates in your own application\.
 + Advanced routing — An Application Load Balancer can have multiple DNS hostnames\. It also has advanced routing capabilities to send incoming HTTP requests to different destinations based on metrics such as the hostname or the path of the request\. This means that you can use a single Application Load Balancer as the input for many different internal services, or even microservices on different paths of a REST API\.
 + gRPC support and websockets — An Application Load Balancer can handle more than just HTTP\. It can also load balance gRPC and websocket based services, with HTTP/2 support\.
-+ Security — An Application Load Balancer helps protect your application from malicious traffic\. It includes features such as HTTP desync mitigations, and is integrated with AWS Web Application Firewall \(AWS WAF\)\. AWS WAF can further filter out malicious traffic that might contain attack patterns, such as SQL injection or cross\-site scripting\.
++ Security — An Application Load Balancer helps protect your application from malicious traffic\. It includes features such as HTTP de sync mitigations, and is integrated with AWS Web Application Firewall \(AWS WAF\)\. AWS WAF can further filter out malicious traffic that might contain attack patterns, such as SQL injection or cross\-site scripting\.
 
 ## Network Load Balancer<a name="networking-nlb"></a>
 
@@ -38,7 +38,7 @@ Because the Network Load Balancer operates at a lower level of the networking st
 
 ## Amazon API Gateway HTTP API<a name="networking-apigateway"></a>
 
-Amazon API Gateway HTTP API is a serverless ingress that's suitable for HTTP applications with sudden bursts in request volumes or low request volumes\. For more information, see [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) in the *API Gateway Developer Guide*\.
+Amazon API Gateway HTTP API is a server less ingress that's suitable for HTTP applications with sudden bursts in request volumes or low request volumes\. For more information, see [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) in the *API Gateway Developer Guide*\.
 
 ![\[Diagram showing architecture of a network using API Gateway.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/apigateway-ingress.png)
 
