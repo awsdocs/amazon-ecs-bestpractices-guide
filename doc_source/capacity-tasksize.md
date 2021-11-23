@@ -4,7 +4,7 @@ One of the most important choices to make when deploying containers on Amazon EC
 
 When you declare a reservation, you're declaring the minimum amount of resources that a task requires\. Your task receives at least the amount of resources requested\. Your application might be able to use more CPU or memory than the reservation that you declare\. However, this is subject to any limits that you also declared\. Using more than the reservation amount is known as bursting\. In Amazon ECS, reservations are guaranteed\. For example, if you use Amazon EC2 instances to provide capacity, Amazon ECS doesn't place a task on an instance where the reservation can't be fulfilled\.
 
-A limit is the maximum amount of CPU units or memory that your container or task can use\. Any attempt to use more CPU more than this imit results in throttling\. Any attempt to use more memory results in your container being stopped\.
+A limit is the maximum amount of CPU units or memory that your container or task can use\. Any attempt to use more CPU more than this limit results in throttling\. Any attempt to use more memory results in your container being stopped\.
 
 Choosing these values can be challenging\. This is because the values that are the most well suited for your application greatly depend on the resource requirements of your application\. Load testing your application is the key to successful resource requirement planning and better understanding your application's requirements\.
 

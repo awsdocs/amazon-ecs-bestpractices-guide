@@ -103,7 +103,7 @@ Amazon ECS on AWS Fargate tasks require you to specify CPU and memory limits bec
 
 ### Use immutable tags with Amazon ECR<a name="security-tasks-containers-recommendations-immutable-ecr-tags"></a>
 
-With Amazon ECR, you can and should use configure images with immutable tags\. This prevents pushing an altered or updated version of an image to your image repository with an identical tag\. This protects against an attacker pushing a compromised version of an image over your image with the same tag\. By using immutable tags, you effectively forces yourself to push a new image with a different tag for each change\. 
+With Amazon ECR, you can and should use configure images with immutable tags\. This prevents pushing an altered or updated version of an image to your image repository with an identical tag\. This protects against an attacker pushing a compromised version of an image over your image with the same tag\. By using immutable tags, you effectively force yourself to push a new image with a different tag for each change\. 
 
 ### Avoid running containers as privileged \(Amazon EC2\)<a name="security-tasks-containers-recommendations-avoid-privileged-containers"></a>
 

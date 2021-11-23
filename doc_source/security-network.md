@@ -66,7 +66,7 @@ The following policy allows all AWS principals in your account to perform all ac
       "Principal": "*",
       "Action": "*",
       "Effect": "Allow",
-      "Resource": "arn:aws:ecr:region:your_account_id:repository/*"
+      "Resource": "arn:aws:ecr:region:account_id:repository/*"
     },
   ]
 }

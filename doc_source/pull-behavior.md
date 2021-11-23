@@ -1,5 +1,14 @@
 # Container image pull behavior<a name="pull-behavior"></a>
 
+## Container image pull behavior for Fargate launch types<a name="fargate-pull-behavior"></a>
+
+Fargate does not cache images, and therefore the whole image is pulled from the registry when a task runs\. The following are our recommendations for images used for Fargate tasks:
++ Use a larger task size with additional vCPUs\. The larger task size can help reduce the time that is required to extract the image when a task launches\.
++ Use a smaller base image\.
++ Have the repository that stores the image in the same Region as the task\.
+
+## Container image pull behavior for Amazon EC2 launch types<a name="ec2-pull-behavior"></a>
+
 When the Amazon ECS agent starts a task, it pulls the Docker image from its remote registry, and then caches a local copy\. When you use a new image tag for each release of your application, this behavior is unnecessary\. 
 
 ![\[Diagram showing the container image pull behavior.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/ecs-cache.PNG)

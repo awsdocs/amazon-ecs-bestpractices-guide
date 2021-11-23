@@ -5,6 +5,7 @@ Amazon Elastic Container Service \(Amazon ECS\) is a highly scalable and fast co
 This guide is revised regularly to incorporate new Amazon ECS best practices as they're established\. If you have any questions or comments about any of the content in this guide, raise an issue in the GitHub repository\. For more information, see [Amazon ECS Best Practices Guide](https://github.com/awsdocs/amazon-ecs-bestpractices-guide) on GitHub\.
 
 **Topics**
++ [Best Practices \- Running your application with Amazon ECS](application.md)
 + [Best Practices \- Networking](networking.md)
 + [Best Practices \- Auto scaling and capacity management](capacity.md)
 + [Best Practices \- Persistent storage](storage.md)

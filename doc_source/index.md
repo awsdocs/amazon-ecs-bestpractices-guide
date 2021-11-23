@@ -15,6 +15,7 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [Introduction](intro.md)
++ [Best Practices - Running your application with Amazon ECS](application.md)
 + [Best Practices - Networking](networking.md)
    + [Connecting to the internet](networking-outbound.md)
    + [Receiving inbound connections from the internet](networking-inbound.md)

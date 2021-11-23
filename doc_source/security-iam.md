@@ -28,11 +28,11 @@ When referencing an ARN in a policy, use the new longer ARN format\. For more in
       ],
       "Condition": {
         "ArnEquals": {
-          "ecs:cluster": "arn:aws:ecs:<region>:<aws_account_id>:cluster/<cluster_name>"
+          "ecs:cluster": "arn:aws:ecs:region:account_id:cluster/cluster_name"
         }
       },
       "Resource": [
-        "arn:aws:ecs:<region>:<aws_account_id>:task-definition/<task_family>:*"
+        "arn:aws:ecs:region:account_id:task-definition/task_family:*"
       ]
     }
   ]
