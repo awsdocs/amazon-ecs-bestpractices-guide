@@ -38,16 +38,18 @@ Because the Network Load Balancer operates at a lower level of the networking st
 
 ## Amazon API Gateway HTTP API<a name="networking-apigateway"></a>
 
-Amazon API Gateway HTTP API is a server less ingress that's suitable for HTTP applications with sudden bursts in request volumes or low request volumes\. For more information, see [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) in the *API Gateway Developer Guide*\.
+Amazon API Gateway HTTP API is a serverless ingress that's suitable for HTTP applications with sudden bursts in request volumes or low request volumes\. For more information, see [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) in the *API Gateway Developer Guide*\.
 
 ![\[Diagram showing architecture of a network using API Gateway.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/apigateway-ingress.png)
 
-The pricing model for both Application Load Balancer and Network Load Balancer include an hourly price to keep the load balancers available for accepting incoming connections at all times\. In contrast, API Gateway charges for each request separately\. This has the effect that, if no requests come in, there are no charges\. Under high traffic loads, an Application Load Balancer or Network Load Balancer can handle a greater volume of requests at a cheaper per\-request price than API Gateway\. However, if you have a low number of requests overall or have periods of low traffic, then the cumulative price for using the API Gateway should be more cost effective than paying a hourly charge to maintain a load balancer that's being underutilized\.
+The pricing model for both Application Load Balancer and Network Load Balancer include an hourly price to keep the load balancers available for accepting incoming connections at all times\. In contrast, API Gateway charges for each request separately\. This has the effect that, if no requests come in, there are no charges\. Under high traffic loads, an Application Load Balancer or Network Load Balancer can handle a greater volume of requests at a cheaper per\-request price than API Gateway\. However, if you have a low number of requests overall or have periods of low traffic, then the cumulative price for using the API Gateway should be more cost effective than paying a hourly charge to maintain a load balancer that's being underutilized\. API Gateway can also cache API responses resulting in lower backend request rates.
 
 API Gateway functions using a VPC link that allows the AWS managed service to connect to hosts inside the private subnet of your VPC, using its private IP address\. It can detect these private IP addresses by looking at AWS Cloud Map service discovery records that are managed by Amazon ECS service discovery\.
 
-API Gateway supports the following features\.
-+ SSL/TLS termination
+API Gateway operates similar to a load balancer but has additional capabilities unique to API management\.
++ API Gateway provides additional capabilities around client authorization, usage tiers, and request/response modification. See [Amazon API Gateway features](https://aws.amazon.com/api-gateway/features/) for more information.
++ API Gateway can support Edge, Regional, and Private API Gateway endpoints. Edge endpoints are available via a managed CloudFront distribution where as Regional and Private are both local to an AWS Region.
++ SSL/TLS encryption - API Gateway can terminate SSL/TLS connections for clients.
 + Routing different HTTP paths to different backend microservices
 
 Besides the preceding features, API Gateway also supports using custom Lambda authorizers that you can use to protect your API from unauthorized usage\. For more information, see [Field Notes: Serverless Container\-based APIs with Amazon ECS and Amazon API Gateway](http://aws.amazon.com/blogs/architecture/field-notes-serverless-container-based-apis-with-amazon-ecs-and-amazon-api-gateway/)\.
