@@ -1,0 +1,3 @@
+# Using temporary security credentials with API operations<a name="temp-credientials"></a>
+
+If you're making direct HTTPS API requests to AWS, you can sign those requests with the temporary security credentials that you get from the AWS Security Token Service\. For more information, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *AWS General Reference*\.
