@@ -64,27 +64,39 @@ In a traditional virtual machine environment, it's typical to run a high\-level 
 
 If the application process crashes or ends, the container also ends\. If the application must be restarted on crash, let Amazon ECS manage the application restart externally\. The Amazon ECS agent reports to the Amazon ECS control plane that the application container crashed\. Then, the control plane determines whether to launch a replacement container, and if so where to launch it\. The replacement container may be placed onto the same host, or onto a different host in the cluster\.
 
-![\[Diagram showing the container process model using an init process inside the container.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/lightweight-init-process.png)
-
-If you use an init process in your container, use a lightweight init process such as `tini`\. This init process takes on the responsibility of reaping zombie processes if your application spawns worker processes\. If your application doesn't handle the `SIGTERM` signal properly, `tini` can catch that signal for you and terminate your application process\. However, if your application process crashes `tini` doesn't restart it\. Instead `tini` exits, allowing the container to end and be replaced by container orchestration\. For more information, see [https://github.com/krallin/tini](https://github.com/krallin/tini) on GitHub\.
-
-Treat containers as ephemeral resources\. They only last for the lifetime of the main application process\. Rather than restarting application processes inside of a container, don't keep the container up and running\. Let Amazon ECS replace containers as needed\.
+Treat containers as ephemeral resources\. They only last for the lifetime of the main application process\. Don't keep restarting application processes inside of a container, to try to keep the container up and running\. Let Amazon ECS replace containers as needed\.
 
 This best practice has two key benefits\.
 + It mitigates scenarios where an application crashed because of a mutation to the local container filesystem\. Instead of reusing the same mutated container environment, the orchestrator launches a new container based off the original container image\. This means that you can be confident that the replacement container is running a clean, baseline environment\.
 + Crashed processes are replaced through a centralized decision making process in the Amazon ECS control plane\. The control plane makes smarter choices about where to launch the replacement process\. For example, the control plane can attempt to launch the replacement onto different hardware in a different Availability Zone\. This makes the overall deployment more resilient than if each individual compute instance attempts to relaunch its own processes locally\.
 
+### Handle `SIGTERM` within the application<a name="signal-handling"></a>
+
+When you're following the guidance of the previous section, you're allowing Amazon ECS to replace tasks elsewhere in the cluster, rather than restart the crashing application\. There are other times when a task may be stopped that are outside the application's control\. Tasks may be stopped due to application errors, health check failures, completion of business workflows or even manual termination by a user\.
+
+When a task is stopped by ECS, ECS follows the steps and configuration shown in [SIGTERM responsiveness](load-balancer-connection-draining.md#sigterm)\.
+
+To prepare your application, you need to identify how long it takes your application to complete its work, and ensure that your applications handles the `SIGTERM` signal\. Within the application's signal handling, you need to stop the application from taking new work and complete the work that is in\-progress, or save unfinished work to storage outside of the task if it would take too long to complete\.
+
+After sending the `SIGTERM` signal, Amazon ECS will wait for the time specified in the `StopTimeout` in the task definition\. Then, the `SIGKILL` signal will be sent\. Set the `StopTimeout` long enough that your application completes the `SIGTERM` handler in all situations before the `SIGKILL` is sent\.
+
+For web applications, you also need to consider open connections that are idle\. See the following page of this guide for more details [Network Load Balancer](networking-inbound.md#networking-nlb)\.
+
+![\[Diagram showing the container process model using an init process inside the container.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/lightweight-init-process.png)
+
+If you use an init process in your container, use a lightweight init process such as `tini`\. This init process takes on the responsibility of reaping zombie processes if your application spawns worker processes\. If your application doesn't handle the `SIGTERM` signal properly, `tini` can catch that signal for you and terminate your application process\. However, if your application process crashes `tini` doesn't restart it\. Instead `tini` exits, allowing the container to end and be replaced by container orchestration\. For more information, see [https://github.com/krallin/tini](https://github.com/krallin/tini) on GitHub\.
+
 ### Configure containerized applications to write logs to `stdout` and `stderr`<a name="log-streams"></a>
 
 There are many different ways to do logging\. For some application frameworks, it's common to use an application logging library that writes directly to disk files\. It's also common to use one that streams logs directly to an ELK \(Elasticsearch, Logstash, Kibana\) stack or a similar logging setup\. However, we recommend that, when an application is containerized, you configure it to write application logs directly to the `stdout` and `stderr` streams\.
 
-Docker includes a variety of logging drivers that take the `stdout` and `stderr` log streams and handle them\. You can choose to write the streams to `syslog`, to disk on the local instance that's running the container, or use a logging driver to send the logs to Fluentd, Splunk, CloudWatch, and other destinations\. With Amazon ECS, you can choose to configure the FireLens logging driver\. This driver can attach Amazon ECS metadata to logs, filter logs, and route logs to different destinations based on criteria such as HTTP status code\. For more information about Docker logging drivers, see [Configure logging drivers](https://docs.docker.com/config/containers/logging/configure/)\. For more information about Firelens, see [Using FireLens](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html)\.
+Docker includes a variety of logging drivers that take the `stdout` and `stderr` log streams and handle them\. You can choose to write the streams to `syslog`, to disk on the local instance that's running the container, or use a logging driver to send the logs to Fluentd, Splunk, CloudWatch, and other destinations\. With Amazon ECS, you can choose to configure the FireLens logging driver\. This driver can attach Amazon ECS metadata to logs, filter logs, and route logs to different destinations based on criteria such as HTTP status code\. For more information about Docker logging drivers, see [Configure logging drivers](https://docs.docker.com/config/containers/logging/configure/)\. For more information about FireLens, see [Using FireLens](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html)\.
 
 When you decouple log handling from your application code, it gives you greater flexibility to adjust log handling at the infrastructure level\. Assume that you want to switch from one logging system to another\. You can do so by adjusting a few settings at the container orchestrator level, rather than having to change code in all your services, build a new container image, and deploy it\.
 
 ### Version container images using tags<a name="version-tags"></a>
 
-Container images are stored in a container registry\. Each image in a registry is identified by a tag\. There's a tag called `latest`\. This tag functions as a pointer to the latest version of the application container image, similar to the `HEAD` in a git repository\. We recommend that you use the `latest` tag only for testing purposes\. As a best practice, tag container images with a unique tag for each build\. We recommend that you tag your images is using the git SHA for the git commit that was used to build the image\.
+Container images are stored in a container registry\. Each image in a registry is identified by a tag\. There's a tag called `latest`\. This tag functions as a pointer to the latest version of the application container image, similar to the `HEAD` in a git repository\. We recommend that you use the `latest` tag only for testing purposes\. As a best practice, tag container images with a unique tag for each build\. We recommend that you tag your images using the git SHA for the git commit that was used to build the image\.
 
 ![\[Diagram showing the container image and matching git commits over time.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/container-image-version-tags.png)
 
@@ -104,9 +116,13 @@ You can use an Amazon ECS task definition to specify multiple containers\. All t
 
 If you group multiple types of application container together in the same task definition, you can’t independently scale those containers\. For example, it's unlikely that both a website and an API require scaling out at the same rate\. As traffic increases, there will be a different number of web containers required than API containers\. If these two containers are being deployed in the same task definition, every task runs the same number of web containers and API containers\.
 
+We recommend that you scale each type of container independently based on demand\.
+
 ![\[Diagram showing the task definition of multiple containers with sidecars for extra functionality while keeping a single business function.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/task-definition-sidecars.png)
 
 We don't recommend that you use multiple containers in a single task definition for grouping different types of application container\. The purpose of having multiple containers in a single task definition is so that you can deploy sidecars, small addon containers that enhance a single type of container\. A sidecar might help with logging and observability, traffic routing, or other addon features\.
+
+We recommend that you use sidecars to attach extra functionality, but that the task has a single business function\.
 
 ### Match each application version with a task definition revision within a task definition family<a name="task-definition-immutable-revisions"></a>
 

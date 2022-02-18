@@ -4,11 +4,13 @@ We recommend that you take into account the following best practices when you us
 
 ## Use AWS KMS to encrypt ephemeral storage<a name="security-fargate-ephemeral-storage-encryption"></a>
 
-You should have your ephemeral storage encrypted by AWS KMS\. For Amazon ECS tasks that are hosted on AWS Fargate using platform version `1.4.0` or later, each task receives 20 GB of ephemeral storage\. The amount of storage isn't adjustable\. For such tasks that were launched on May 28, 2020 or later, the ephemeral storage is encrypted with an AES\-256 encryption algorithm using an encryption key managed by AWS Fargate\.
+You should have your ephemeral storage encrypted by AWS KMS\. For Amazon ECS tasks that are hosted on AWS Fargate using platform version `1.4.0` or later, each task receives 20 GiB of ephemeral storage\. You can increase the total amount of ephemeral storage, up to a maximum of 200 GiB, by specifying the `ephemeralStorage` parameter in your task definition\. For such tasks that were launched on May 28, 2020 or later, the ephemeral storage is encrypted with an AES\-256 encryption algorithm using an encryption key managed by AWS Fargate\.
+
+For more information, see [Using data volumes in tasks ](https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html)\.
 
 **Example: Launching an Amazon ECS task on AWS Fargate platform version 1\.4\.0 with ephemeral storage encryption**
 
-The following command will launch an Amazon ECS task on AWS Fargate platform version 1\.4\. Because this task is launched as part of the Amazon ECS cluster, it uses the 20 GB of ephemeral storage that's automatically encrypted\.
+The following command will launch an Amazon ECS task on AWS Fargate platform version 1\.4\. Because this task is launched as part of the Amazon ECS cluster, it uses the 20 GiB of ephemeral storage that's automatically encrypted\.
 
 ```
 aws ecs run-task --cluster clustername \

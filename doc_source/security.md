@@ -8,6 +8,7 @@ This guide provides security and compliance recommendations for protecting your 
 + [Using IAM roles with Amazon ECS tasks](security-iam-roles.md)
 + [Network security](security-network.md)
 + [Secrets management](security-secrets-management.md)
++ [Using temporary security credentials with API operations](temp-credientials.md)
 + [Compliance](security-compliance.md)
 + [Logging and monitoring](security-logging-and-monitoring.md)
 + [AWS Fargate security](security-fargate.md)

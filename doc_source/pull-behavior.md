@@ -16,7 +16,7 @@ When the Amazon ECS agent starts a task, it pulls the Docker image from its remo
 The following Amazon ECS agent parameter determines the image pull behavior:
 + `ECS_IMAGE_PULL_BEHAVIOR`: default
 
-  For more information about the container agent parameter, see [Container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide*\.
+  For more information about the container agent parameter, see [Container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*\.
 
 To speed up deployment, set the Amazon ECS agent parameter to one of the following values: 
 + `ECS_IMAGE_PULL_BEHAVIOR`: `once`

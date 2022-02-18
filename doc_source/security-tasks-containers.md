@@ -8,7 +8,7 @@ We recommend that you do the following when setting up your tasks and containers
 
 ### Create minimal or use distroless images<a name="security-tasks-containers-recommendations-images"></a>
 
-Start by removing all extraneous binaries from the container image\. If you’re using an unfamiliar image from Docker Hub, inspect the image to refer to the contents of each of the container's layers\. You can use an application such as [Dive](https://github.com/wagoodman/dive) to do this\.
+Start by removing all extraneous binaries from the container image\. If you’re using an unfamiliar image from Amazon ECR Public Gallery, inspect the image to refer to the contents of each of the container's layers\. You can use an application such as [Dive](https://github.com/wagoodman/dive) to do this\.
 
 Alternatively, you can use **distroless** images that only include your application and its runtime dependencies\. They don't contain package managers or shells\. Distroless images improve the "signal to noise of scanners and reduces the burden of establishing provenance to just what you need\." For more information, see the GitHub documentation on [distroless](https://github.com/GoogleContainerTools/distroless)\.
 

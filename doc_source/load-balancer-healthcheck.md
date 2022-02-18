@@ -4,8 +4,10 @@ The following diagram describes the load balancer health check process\. The loa
 
 ![\[Diagram showing the load balancer health checks.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/load-balancer-healthcheck.PNG)
 
-There are two options in the health check that affect the deployment speed\. These are for the load balancer\.
+There are two options in the health check that affect the deployment speed\. One is for the Amazon ECS task definition\. The other is for the load balancer\.
 + `HealthCheckIntervalSeconds`: 30 seconds \(default\)
+
+  For more information about the task definition health check interval parameter, see [Health Check](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_healthcheck) in the *Amazon Elastic Container Service Developer Guide*\.
 + `HealthyThresholdCount`: 5 \(default\)
 
 By default, the load balancer requires five passing health checks before it reports that the target container is healthy\. Each check is made 30 seconds apart\. In total, each time takes two minutes and 30 seconds \(`5*30/60`\)\. 

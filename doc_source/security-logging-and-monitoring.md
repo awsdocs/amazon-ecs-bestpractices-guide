@@ -17,7 +17,6 @@ AWS provides a Fluent Bit image with plugins for both Amazon CloudWatch Logs and
 The AWS for Fluent Bit image is available on:
 + [Amazon ECR on Amazon ECR Public Gallery](https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
 + [Amazon ECR repository](https://github.com/aws/aws-for-fluent-bit#amazon-ecr) \(in most Regions of high availability\)
-+ [Docker Hub](https://hub.docker.com/r/amazon/aws-for-fluent-bit)
 
 The following shows the syntax to use for the Docker CLI\.
 

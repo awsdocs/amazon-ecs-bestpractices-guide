@@ -8,7 +8,7 @@ Secrets can be seamlessly injected into containers from AWS Secrets Manager and 
 
 1. They're referenced as `secretOptions` if your logging platform requires authentication\. For more information, see [logging configuration options](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html#API_LogConfiguration_Contents)\.
 
-1. They're referenced as secrets pulled by images that use the `repositoryCredentials` container definition parameter if the registry where the container is being pulled from requires authentication\. Use this method when pulling images from Docker Hub\. For more information, see [Private registry authentication for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth.html)\.
+1. They're referenced as secrets pulled by images that use the `repositoryCredentials` container definition parameter if the registry where the container is being pulled from requires authentication\. Use this method when pulling images from Amazon ECR Public Gallery\. For more information, see [Private registry authentication for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth.html)\.
 
 ## Recommendations<a name="security-secrets-management-recommendations"></a>
 
