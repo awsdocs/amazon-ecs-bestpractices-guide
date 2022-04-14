@@ -42,7 +42,7 @@ The expected output is as follows:
 }
 ```
 
-Newer versions of the AWS SDKs automatically fetch these credentials from the `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment varible when making AWS API calls\.
+Newer versions of the AWS SDKs automatically fetch these credentials from the `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment variable when making AWS API calls\.
 
 The output includes an access key\-pair consisting of a secret access key ID and a secret key which your application uses to access AWS resources\. It also includes a token that AWS uses to verify that the credentials are valid\. By default, credentials assigned to tasks using task roles are valid for six hours\. After that, they are automatically rotated by the Amazon ECS container agent\.
 
