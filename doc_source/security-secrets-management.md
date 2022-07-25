@@ -1,6 +1,6 @@
 # Secrets management<a name="security-secrets-management"></a>
 
-Secrets, such as API keys and database credentials, are frequently used by applications to gain access other systems\. They often consist of a username and password, a certificate, or API key\. Access to these secrets should be restricted to specific IAM principals that are using IAM and injected into containers at runtime\.
+Secrets, such as API keys and database credentials, are frequently used by applications to gain access to other systems\. They often consist of a username and password, a certificate, or API key\. Access to these secrets should be restricted to specific IAM principals that are using IAM and injected into containers at runtime\.
 
 Secrets can be seamlessly injected into containers from AWS Secrets Manager and Amazon EC2 Systems Manager Parameter Store\. These secrets can be referenced in your task as any of the following\.
 
@@ -32,7 +32,7 @@ Because the value of environment variables can inadvertently leak in logs and ar
 
 ### Mount the secret to a volume using a sidecar container<a name="security-secrets-management-recommendations-mount-secret-volumes"></a>
 
-Because there's an elevated risk of data leakage with environment variables, you should run a sidecar container that reads your secrets from AWS Secrets Manager and write them to a shared volume\. This container can run and exit before the application container by using [Amazon ECS container ordering](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html)\. When you do this, the application container is subsequently mount the volume where the secret was written\. Like the Amazon S3 bucket method, your application must be written to read the secret from the shared volume\. Because the volume is scoped to the task, the volume is automatically deleted after the task stops\. For an example of a sidecar container, see the [aws\-secret\-sidecar\-injector](https://github.com/aws-samples/aws-secret-sidecar-injector/blob/master/ecs-task-def/task-def.json) project\.
+Because there's an elevated risk of data leakage with environment variables, you should run a sidecar container that reads your secrets from AWS Secrets Manager and write them to a shared volume\. This container can run and exit before the application container by using [Amazon ECS container ordering](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html)\. When you do this, the application container subsequently mounts the volume where the secret was written\. Like the Amazon S3 bucket method, your application must be written to read the secret from the shared volume\. Because the volume is scoped to the task, the volume is automatically deleted after the task stops\. For an example of a sidecar container, see the [aws\-secret\-sidecar\-injector](https://github.com/aws-samples/aws-secret-sidecar-injector/blob/master/ecs-task-def/task-def.json) project\.
 
 **Note**  
 On Amazon EC2, the volume that the secret is written to can be encrypted with a AWS KMS customer managed key\. On AWS Fargate, volume storage is automatically encrypted using a service managed key\. 
