@@ -17,7 +17,7 @@ Do not set the value to 5 seconds when you have a service with long\-lived reque
 
 ## SIGTERM responsiveness<a name="sigterm"></a>
 
-The following diagram shows how Amazon ECS terminates a task\. Amazon ECS first sends a SIGTERM signal to the task to notify the application needs to finish and shut down, and then the sends a SIGKILL message\. When applications ignore the SIGTERM, the Amazon ECS service must wait to send the SIGKILL signal to terminate the process\.
+The following diagram shows how Amazon ECS terminates a task\. Amazon ECS first sends a SIGTERM signal to the task to notify the application needs to finish and shut down, and then Amazon ECS sends a SIGKILL message\. When applications ignore the SIGTERM, the Amazon ECS service must wait to send the SIGKILL signal to terminate the process\.
 
 ![\[Diagram showing the Amazon ECS service sending the SIGTERM and SIGKILL messages.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/ecs-sigterm.PNG)
 
