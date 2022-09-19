@@ -4,7 +4,7 @@ With the `awsvpc` network mode, Amazon ECS creates and manages an Elastic Networ
 
 ![\[Diagram showing architecture of a network using the AWSVPC network mode.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/networkmode-awsvpc.png)
 
-In the preceding example, the Amazon EC2 instance is assigned to an ENI\. The ENI represents the IP address of the EC2 instance used for network communications at the host level\. Each task also has a corresponding ENI and an private IP address\. Because each ENI is separate, each container can bind to port `80` on the task ENI\. Therefore, you don't need to keep track of port numbers\. Instead, you can send traffic to port `80` at the IP address of the task ENI\.
+In the preceding example, the Amazon EC2 instance is assigned to an ENI\. The ENI represents the IP address of the EC2 instance used for network communications at the host level\. Each task also has a corresponding ENI and a private IP address\. Because each ENI is separate, each container can bind to port `80` on the task ENI\. Therefore, you don't need to keep track of port numbers\. Instead, you can send traffic to port `80` at the IP address of the task ENI\.
 
 The advantage of using the `awsvpc` network mode is that each task has a separate security group to allow or deny traffic\. This means you have greater flexibility to control communications between tasks and services at a more granular level\. You can also configure a task to deny incoming traffic from another task located on the same host\.
 
