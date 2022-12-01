@@ -123,7 +123,7 @@ CAP_NET_RAW, CAP_SYS_CHROOT, CAP_MKNOD, CAP_AUDIT_WRITE,
 CAP_SETFCAP
 ```
 
-If a container doesn't require all of the Docker kernal capabilties listed above, consider dropping them from the container\. For more information about each Docker kernal capability, see [KernalCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html)\. You can find out which capabilities are in use by doing the following:
+If a container doesn't require all of the Docker kernel capabilties listed above, consider dropping them from the container\. For more information about each Docker kernal capability, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html)\. You can find out which capabilities are in use by doing the following:
 + Install the OS package [libcap\-ng](https://people.redhat.com/sgrubb/libcap-ng/) and run the `pscap` utility to list the capabilities that each process is using\.
 + You can also use [capsh](https://www.man7.org/linux/man-pages/man1/capsh.1.html) to decipher which capabilities a process is using\. 
 + Refer to [Linux Capabilities 101](https://linux-audit.com/linux-capabilities-101/) for more information\. 
