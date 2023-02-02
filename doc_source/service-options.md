@@ -20,7 +20,7 @@ There are two ECS service configuration options that you can use to modify the n
 
 Consider the following service that has six tan tasks, deployed in a cluster that has room for eight tasks total\. The default Amazon ECS service configuration options don't allow the deployment to go below 100% of the six desired tasks\.
 
-![\[Diagram showing six tasks in a cluster that has room for eight tasks.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-1.PNG)
+![\[Diagram showing six tasks in a cluster that has room for eight tasks.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-1.png)
 
 The deployment process is as follows:
 
@@ -44,7 +44,7 @@ You can speed up the deployment by setting the `minimumHealthyPercent` value to 
 
 Consider the following service that has six tan tasks, deployed in a cluster that has room for eight tasks total\. 
 
-![\[Diagram showing six tasks in a cluster that has room for eight tasks with a minimumHealthyPercent value of 50%.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-2.PNG)
+![\[Diagram showing six tasks in a cluster that has room for eight tasks with a minimumHealthyPercent value of 50%.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-2.png)
 
 The deployment process is as follows:
 
@@ -60,7 +60,7 @@ The deployment process is as follows:
 
 You could also add additional free space so that you can run additional tasks\.
 
-![\[Diagram showing six tasks in a cluster that has room for eight tasks.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-3.PNG)
+![\[Diagram showing six tasks in a cluster that has room for eight tasks.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/deployment-3.png)
 
 The deployment process is as follows:
 

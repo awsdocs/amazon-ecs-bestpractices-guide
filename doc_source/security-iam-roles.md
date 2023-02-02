@@ -1,8 +1,8 @@
 # Using IAM roles with Amazon ECS tasks<a name="security-iam-roles"></a>
 
-We recommend that you assign a task an IAM role\. Its role can be distinguished from the role of the Amazon EC2 instance that it's running on\. Assigning each task a role aligns with the principle of least priviledged access and allows for greater granular control over actions and resources\.
+We recommend that you assign a task an IAM role\. Its role can be distinguished from the role of the Amazon EC2 instance that it's running on\. Assigning each task a role aligns with the principle of least privileged access and allows for greater granular control over actions and resources\.
 
-When assigning IAM roles for a task, you must use the folllowing trust policy so that each of your tasks can assume an IAM role that's different from the one that your EC2 instance uses\. This way, your task doesn't inherit the role of your EC2 instance\.
+When assigning IAM roles for a task, you must use the following trust policy so that each of your tasks can assume an IAM role that's different from the one that your EC2 instance uses\. This way, your task doesn't inherit the role of your EC2 instance\.
 
 ```
 {
@@ -20,11 +20,11 @@ When assigning IAM roles for a task, you must use the folllowing trust policy so
 }
 ```
 
-When you add a task role to a task definition, the Amazon ECS container agent automatically creates a token with a unique credential ID \(for example, `12345678-90ab-cdef-1234-567890abcdef`\) for the task\. This token and the role credentials are then added to the agent's internal cache\. The agent populates the the environment variable `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` in the container with the URI of the credential ID \(for example, `/v2/credentials/12345678-90ab-cdef-1234-567890abcdef`\)\.
+When you add a task role to a task definition, the Amazon ECS container agent automatically creates a token with a unique credential ID \(for example, `12345678-90ab-cdef-1234-567890abcdef`\) for the task\. This token and the role credentials are then added to the agent's internal cache\. The agent populates the environment variable `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` in the container with the URI of the credential ID \(for example, `/v2/credentials/12345678-90ab-cdef-1234-567890abcdef`\)\.
 
 ![\[This workflow shows the process involved when the Amazon ECS container agent caches credentials. These credentials are determined by the task role that is defined in the task definition.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/iam-roles-with-ecs-workflow.png)
 
-You can manually retrieve the temporary role credentials from inside a container by appending the environment variable to the IP address of the Amazon ECS container agent and running the `curl` command on the the resulting string\.
+You can manually retrieve the temporary role credentials from inside a container by appending the environment variable to the IP address of the Amazon ECS container agent and running the `curl` command on the resulting string\.
 
 ```
 curl 192.0.2.0$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
@@ -90,14 +90,14 @@ The Amazon ECS container agent is a container that runs on each Amazon EC2 insta
 }
 ```
 
-In this policy, the `ecr` and `logs` api actions allow the containers that are running on your instances to pull images from Amazon ECR and write logs to Amazon CloudWatch\. The `ecs` actions allow the agent to register and de\-register instances and to communicate with the Amazon ECS control plane\. Of these, the `ecs:CreateCluster` action is optional\.
+In this policy, the `ecr` and `logs` API actions allow the containers that are running on your instances to pull images from Amazon ECR and write logs to Amazon CloudWatch\. The `ecs` actions allow the agent to register and de\-register instances and to communicate with the Amazon ECS control plane\. Of these, the `ecs:CreateCluster` action is optional\.
 
 ## Service\-linked roles<a name="security-iam-roles-service-linked"></a>
 
 You can use the service\-linked role for Amazon ECS to grant the Amazon ECS service permission to call other service APIs on your behalf\. Amazon ECS needs the permissions to create and delete network interfaces, register, and de\-register targets with a target group\. It also needs the necessary permissions to create and delete scaling policies\. These permissions are granted through the service\-linked role\. This role is created on your behalf the first time that you use the service\.
 
 **Note**  
-If you inadvertantly delete the service\-linked role, you can recreate it\. For instructions, see [Create the service\-linked role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html#create-service-linked-role)\.
+If you inadvertently delete the service\-linked role, you can recreate it\. For instructions, see [Create the service\-linked role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html#create-service-linked-role)\.
 
 ## Recommendations<a name="security-iam-roles-recommendations"></a>
 
@@ -127,7 +127,7 @@ For this change to persist after a reboot, run the following command that's spec
 
 For tasks that use `awsvpc` network mode, set the environment variable `ECS_AWSVPC_BLOCK_IMDS` to `true` in the `/etc/ecs/ecs.config` file\.
 
-You should set the `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST` variable to `false` in the ecs\-agent config file to prevent the containers that are running within the `host` network from accessing the Amazon EC2 metadata\.
+You should set the `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST` variable to `false` in the `ecs-agent config` file to prevent the containers that are running within the `host` network from accessing the Amazon EC2 metadata\.
 
 ### Use `awsvpc` network mode<a name="security-iam-roles-recommendations-awsvpc-networking-mode"></a>
 
@@ -153,7 +153,7 @@ For more information, see [IAM Access Advisor](https://docs.aws.amazon.com/IAM/l
 
 ### Monitor AWS CloudTrail for suspicious activity<a name="security-iam-roles-recommendations-cloudtrail-monitoring"></a>
 
-You can monitor AWS CloudTrail for any suspicious activity\. Most AWS API calls are logged to AWS CloudTrail as events\. They are analyzed by AWS CloudTrail Insights, and you're alerted of any suspicious behavior that's associated with `write` API calls\. This might includea spike in call volume\. These alerts include such information as the time the unusual activity occurred and the top identity ARN that contributed to the APIs\. 
+You can monitor AWS CloudTrail for any suspicious activity\. Most AWS API calls are logged to AWS CloudTrail as events\. They are analyzed by AWS CloudTrail Insights, and you're alerted of any suspicious behavior that's associated with `write` API calls\. This might include a spike in call volume\. These alerts include such information as the time the unusual activity occurred and the top identity ARN that contributed to the APIs\. 
 
 You can identify actions that are performed by tasks with an IAM role in AWS CloudTrail by looking at the event's `userIdentity` property\. In the following example, the `arn` includes of the name of the assumed role, `s3-write-go-bucket-role`, followed by the name of the task, `7e9894e088ad416eb5cab92afExample`\.
 

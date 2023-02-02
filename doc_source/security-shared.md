@@ -1,6 +1,6 @@
 # Shared responsibility model<a name="security-shared"></a>
 
-The security and compliance of a managed service like Amazon ECS is a shared resposibility of both you and AWS\. Generally speaking, AWS is responsible for security "of" the cloud whereas you, the customer, are responsible for security "in" the cloud\. AWS is responsible for managing of the Amazon ECS control plane, including the infrastructure that's needed to deliver a secure and reliable service\. And, you're largely responsible for the topics in this guide\. This includes data, network, and runtime security, as well as logging and monitoring\.
+The security and compliance of a managed service like Amazon ECS is a shared responsibility of both you and AWS\. Generally speaking, AWS is responsible for security "of" the cloud whereas you, the customer, are responsible for security "in" the cloud\. AWS is responsible for managing of the Amazon ECS control plane, including the infrastructure that's needed to deliver a secure and reliable service\. And, you're largely responsible for the topics in this guide\. This includes data, network, and runtime security, as well as logging and monitoring\.
 
 ![\[Diagram showing security layers for Amazon ECS on Amazon EC2.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/amazon-ecs-on-ec2-responsibilities.png)
 

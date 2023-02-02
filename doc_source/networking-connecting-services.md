@@ -1,6 +1,6 @@
 # Networking between Amazon ECS services in a VPC<a name="networking-connecting-services"></a>
 
-Using Amazon ECS containers in a VPC, you can spilt monolithic applications into separate parts that can be deployed and scaled independently in a secure environment\. However, it can be challenging to make sure that all of these parts, both in and outside of a VPC, can communicate with each other\. There are several approaches for facilitating communication, all with different advantages and disadvantages\.
+Using Amazon ECS containers in a VPC, you can split monolithic applications into separate parts that can be deployed and scaled independently in a secure environment\. However, it can be challenging to make sure that all of these parts, both in and outside of a VPC, can communicate with each other\. There are several approaches for facilitating communication, all with different advantages and disadvantages\.
 
 ## Using service discovery<a name="networking-connecting-services-direct"></a>
 

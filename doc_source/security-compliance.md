@@ -4,7 +4,7 @@ Your compliance responsibility when using Amazon ECS is determined by the sensit
 
 AWS provides the following resources to help with compliance:
 + [Security and compliance quick start guides](http://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance): These deployment guides discuss architectural considerations and provide steps for deploying security and compliance\-focused baseline environments on AWS\.
-+ [Architecting for HIPAA Security and Compliance Whitepaper](https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf): This whitepaper describes how companies can use AWS to create HIPAA\-compliant applications\.
++ [Architecting for HIPAA Security and Compliance Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.html): This whitepaper describes how companies can use AWS to create HIPAA\-compliant applications\.
 + [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/): This list contains the AWS services in scope of specific compliance programs\. For more information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 
 ## Payment Card Industry Data Security Standards \(PCI DSS\)<a name="security-compliance-pci-dss"></a>

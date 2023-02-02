@@ -1,6 +1,6 @@
 # Secrets management<a name="security-secrets-management"></a>
 
-Secrets, such as API keys and database credentials, are frequently used by applications to gain access to other systems\. They often consist of a username and password, a certificate, or API key\. Access to these secrets should be restricted to specific IAM principals that are using IAM and injected into containers at runtime\.
+Secrets, such as API keys and database credentials, are frequently used by applications to gain access other systems\. They often consist of a username and password, a certificate, or API key\. Access to these secrets should be restricted to specific IAM principals that are using IAM and injected into containers at runtime\.
 
 Secrets can be seamlessly injected into containers from AWS Secrets Manager and Amazon EC2 Systems Manager Parameter Store\. These secrets can be referenced in your task as any of the following\.
 
@@ -12,7 +12,7 @@ Secrets can be seamlessly injected into containers from AWS Secrets Manager and 
 
 ## Recommendations<a name="security-secrets-management-recommendations"></a>
 
-We recommend that yo do the following when setting up secrets management\.
+We recommend that you do the following when setting up secrets management\.
 
 ### Use AWS Secrets Manager or Amazon EC2 Systems Manager Parameter Store for storing secret materials<a name="security-secrets-management-recommendations-storing-secret-materials"></a>
 

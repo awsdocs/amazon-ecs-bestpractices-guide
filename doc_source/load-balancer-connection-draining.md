@@ -4,7 +4,7 @@ To allow for optimization, clients maintain a keep alive connection to the conta
 
 The following diagram describes the load balancer connection draining process\. When you tell the load balancer to stop traffic to the container, it periodically checks to see if the client closed the keep alive connection\. The Amazon ECS agent monitors the load balancer and waits the load balancer to report that the keep alive connection is closed\.
 
-![\[Diagram showing the load balancer container draining.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/load-balancer-connection-drainig.PNG)
+![\[Diagram showing the load balancer container draining.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/load-balancer-connection-draining.png)
 
 The amount of time that the load balancer waits is the deregistraion delay\. You can configure the following load balancer setting to speed up your deployments\.
 + `deregistration_delay.timeout_seconds`: 300 \(default\)
@@ -19,7 +19,7 @@ Do not set the value to 5 seconds when you have a service with long\-lived reque
 
 The following diagram shows how Amazon ECS terminates a task\. Amazon ECS first sends a SIGTERM signal to the task to notify the application needs to finish and shut down, and then Amazon ECS sends a SIGKILL message\. When applications ignore the SIGTERM, the Amazon ECS service must wait to send the SIGKILL signal to terminate the process\.
 
-![\[Diagram showing the Amazon ECS service sending the SIGTERM and SIGKILL messages.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/ecs-sigterm.PNG)
+![\[Diagram showing the Amazon ECS service sending the SIGTERM and SIGKILL messages.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/ecs-sigterm.png)
 
 The amount of time that Amazon ECS waits is determined by the following Amazon ECS agent option:
 + `ECS_CONTAINER_STOP_TIMEOUT`: 30 \(default\)

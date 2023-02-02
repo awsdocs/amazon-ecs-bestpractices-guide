@@ -9,5 +9,7 @@ This guide is revised regularly to incorporate new Amazon ECS best practices as 
 + [Best Practices \- Networking](networking.md)
 + [Best Practices \- Auto scaling and capacity management](capacity.md)
 + [Best Practices \- Persistent storage](storage.md)
++ [Best Practices \- Speeding up task launch](task.md)
 + [Best Practices \- Speeding up deployments](deployment.md)
++ [Best Practices \- Operating Amazon ECS at scale](operating-at-scale.md)
 + [Best Practices \- Security](security.md)

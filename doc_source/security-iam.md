@@ -1,6 +1,6 @@
 # AWS Identity and Access Management<a name="security-iam"></a>
 
-You can use AWS Identity and Access Management \(IAM\) to manage and control access to your AWS services and resources through rule\-based policies for authentication and authorization purposes\. More specifically, through this service, you control access to your AWS resources by using policies that are applied to IAM users, groups, or roles\. Among these three, IAM users are accounts that can have access to your resources\. And, an IAM role is a set of permissions that can be assumed by an authenticated identity, which isn't associated with a particular identity outside of IAM\. For more information, see [Policies and permissions in IAM?](IAM/latest/UserGuide/access_policies.html)\.
+You can use AWS Identity and Access Management \(IAM\) to manage and control access to your AWS services and resources through rule\-based policies for authentication and authorization purposes\. More specifically, through this service, you control access to your AWS resources by using policies that are applied to users, groups, or roles\. Among these three, users are accounts that can have access to your resources\. And, an IAM role is a set of permissions that can be assumed by an authenticated identity, which isn't associated with a particular identity outside of IAM\. For more information, see [Policies and permissions in IAM?](IAM/latest/UserGuide/access_policies.html)\.
 
 ## Managing access to Amazon ECS<a name="security-iam-managing"></a>
 
@@ -12,7 +12,7 @@ We recommend that you do the following when setting up your IAM roles and polici
 
 ### Follow the policy of least privileged access<a name="security-iam-recommendations-leastpriv"></a>
 
-Create policies that are scoped to allow users to perform their prescribed jobs\. For example, if a developer needs to periodically stop a task, create a policy that only permits that particular action\. The following example only allows a user to stop a task that belongs to a particular `task_family` on a cluster with a specific Amazon Resource Name \(ARN\)\. Refering to an ARN in a condition is also an example of using resource\-level permissions\. You can use resource\-level permissionsto specify the resource that you want an action to apply to\.
+Create policies that are scoped to allow users to perform their prescribed jobs\. For example, if a developer needs to periodically stop a task, create a policy that only permits that particular action\. The following example only allows a user to stop a task that belongs to a particular `task_family` on a cluster with a specific Amazon Resource Name \(ARN\)\. Referring to an ARN in a condition is also an example of using resource\-level permissions\. You can use resource\-level permissions to specify the resource that you want an action to apply to\.
 
 **Note**  
 When referencing an ARN in a policy, use the new longer ARN format\. For more information, see [Amazon Resource Names \(ARNs\) and IDs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon Elastic Container Service Developer Guide*\.

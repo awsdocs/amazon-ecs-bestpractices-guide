@@ -10,5 +10,6 @@ With Amazon ECS, like all AWS services, you pay only for what you use\. When arc
 + [Capacity and availability](capacity-availability.md)
 + [Cluster capacity](capacity-cluster.md)
 + [Choosing Fargate task sizes](fargate-task-size.md)
++ [Speeding up cluster capacity provisioning with capacity providers on Amazon EC2](capacity-cluster-speed-up-ec2.md)
 + [Choosing the Amazon EC2 instance type](ec2-instance-type.md)
 + [Using Amazon EC2 Spot and FARGATE\_SPOT](ec2-and-fargate-spot.md)

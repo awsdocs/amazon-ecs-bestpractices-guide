@@ -12,7 +12,7 @@ For more information about Amazon CloudWatch Logs, see **Monitor Logs from Amazo
 
 ## Container logging with Fluent Bit<a name="security-logging-and-monitoring-fluent-bit"></a>
 
-AWS provides a Fluent Bit image with plugins for both Amazon CloudWatch Logs and Amazon Kinesis Data Firehose\. This image provides the capability to route logs to Amazon CloudWatch and Amazon Kinesis Data Firehose destinations \(which include Amazon S3, Amazon Elasticsearch Service, and Amazon Redshift\)\. We recommend using Fluent Bit as your log router because it has a lower resource utilization rate than Fluentd\. For more information, see [Amazon CloudWatch Logs for Fluent Bit](https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit) and [Amazon Kinesis Data Firehose for Fluent Bit](https://github.com/aws/amazon-kinesis-firehose-for-fluent-bit)\.
+AWS provides a Fluent Bit image with plugins for both Amazon CloudWatch Logs and Amazon Kinesis Data Firehose\. This image provides the capability to route logs to Amazon CloudWatch and Amazon Kinesis Data Firehose destinations \(which include Amazon S3, Amazon OpenSearch Service, and Amazon Redshift\)\. We recommend using Fluent Bit as your log router because it has a lower resource utilization rate than Fluentd\. For more information, see [Amazon CloudWatch Logs for Fluent Bit](https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit) and [Amazon Kinesis Data Firehose for Fluent Bit](https://github.com/aws/amazon-kinesis-firehose-for-fluent-bit)\.
 
 The AWS for Fluent Bit image is available on:
 + [Amazon ECR on Amazon ECR Public Gallery](https://gallery.ecr.aws/aws-observability/aws-for-fluent-bit)
@@ -37,7 +37,7 @@ Also refer to the following blog posts for more information on Fluent Bit and re
 
 ## Custom log routing \- FireLens for Amazon ECS<a name="security-logging-and-monitoring-firelens"></a>
 
-With FireLens for Amazon ECS, you can use task definition parameters to route logs to an AWS service or AWS Partner Network \(APN\) destination for log storage and analytics\. FireLens works with [Fluentd](https://www.fluentd.org/) and [Fluent Bit](https://fluentbit.io/)\. We provide the AWS for Fluent Bit image\. Or, you can alternatively use your own Fluentd or Fluent Bit image\.
+With FireLens for Amazon ECS, you can use task definition parameters to route logs to an AWS service or AWS Partner Network \(APN\) destination for log storage and analytics\. FireLens works with [Fluentd](https://www.fluentd.org/) and [https://fluentbit.io/](https://fluentbit.io/)\. We provide the AWS for Fluent Bit image\. Or, you can alternatively use your own Fluentd or Fluent Bit image\.
 
 You should consider the following conditions and considerations when using FireLens for Amazon ECS:
 + FireLens for Amazon ECS is supported for tasks that are hosted both on AWS Fargate and Amazon EC2\.
