@@ -55,7 +55,7 @@ The pricing model for both Application Load Balancer and Network Load Balancer i
 API Gateway functions which use a VPC link that allows the AWS managed service to connect to hosts inside the private subnet of your VPC, using its private IP address\. It can detect these private IP addresses by looking at AWS Cloud Map service discovery records that are managed by Amazon ECS service discovery\.
 
 API Gateway supports the following features\.
-+ The API Gateway operatation is similar to a load balancer, but has additional capabilities unique to API management
++ The API Gateway operation is similar to a load balancer, but has additional capabilities unique to API management
 + The API Gateway provides additional capabilities around client authorization, usage tiers, and request/response modification\. For more information, see [Amazon API Gateway features](http://aws.amazon.com/api-gateway/features/)\.
 + The API Gateway can support edge, regional, and private API gateway endpoints\. Edge endpoints are available through a managed CloudFront distribution\. Regional and private endpoints are both local to a Region\.
 + SSL/TLS termination
