@@ -75,7 +75,6 @@ Use of open source libraries is now common\. As with operating systems and OS pa
 
 Docker Desktop performs local scans using Snyk\. It can also be used to find vulnerabilities and potential licensing issues in open source libraries\. It can be integrated directly into developer workflows giving you the ability to mitigate risks posed by open source libraries\. For more information, see the following topics:
 + [Open Source Application Security Tools](https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools) includes a list of tools for detecting vulnerabilities in applications\. 
-+ [Docker scanning cheatsheet](https://snyk.io/blog/docker-security-scanning-cheatsheet-2021/) 
 
 ### Perform static code analysis<a name="security-tasks-containers-recommendations-static-code-analysis"></a>
 

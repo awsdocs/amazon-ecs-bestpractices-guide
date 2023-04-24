@@ -1,6 +1,6 @@
 # AWS Identity and Access Management<a name="security-iam"></a>
 
-You can use AWS Identity and Access Management \(IAM\) to manage and control access to your AWS services and resources through rule\-based policies for authentication and authorization purposes\. More specifically, through this service, you control access to your AWS resources by using policies that are applied to users, groups, or roles\. Among these three, users are accounts that can have access to your resources\. And, an IAM role is a set of permissions that can be assumed by an authenticated identity, which isn't associated with a particular identity outside of IAM\. For more information, see [Policies and permissions in IAM?](IAM/latest/UserGuide/access_policies.html)\.
+You can use AWS Identity and Access Management \(IAM\) to manage and control access to your AWS services and resources through rule\-based policies for authentication and authorization purposes\. More specifically, through this service, you control access to your AWS resources by using policies that are applied to users, groups, or roles\. Among these three, users are accounts that can have access to your resources\. And, an IAM role is a set of permissions that can be assumed by an authenticated identity, which isn't associated with a particular identity outside of IAM\. For more information, see [Overview of access management: Permissions and policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html)\.
 
 ## Managing access to Amazon ECS<a name="security-iam-managing"></a>
 

@@ -1,4 +1,4 @@
-# Compliance<a name="security-compliance"></a>
+# Compliance and security<a name="security-compliance"></a>
 
 Your compliance responsibility when using Amazon ECS is determined by the sensitivity of your data, and the compliance objectives of your company, and applicable laws and regulations\. 
 
@@ -21,7 +21,11 @@ For additional information on achieving PCI DSS compliance on Amazon ECS, refer 
 
 Using Amazon ECS with workloads that process protected health information \(PHI\) requires no additional configuration\. Amazon ECS acts as an orchestration service that coordinates the launch of containers on Amazon EC2\. It doesn't operate with or upon data within the workload being orchestrated\. Consistent with HIPAA regulations and the AWS Business Associate Addendum, PHI should be encrypted in transit and at\-rest when accessed by containers launched with Amazon ECS\.
 
-Various mechanisms for encrypting at\-rest are available with each AWS storage option, such as Amazon S3, Amazon EBS, and AWS KMS\. You may deploy an overlay network \(such as VNS3 or Weave Net\) to ensure complete encryption of PHI transferred between containers or to provide a redundant layer of encryption\. Complete logging should also be enabled and all container logs should be directed to Amazon CloudWatch\. For more information, see [Architecting for HIPAA Security and Compliance](https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf)\.
+Various mechanisms for encrypting at\-rest are available with each AWS storage option, such as Amazon S3, Amazon EBS, and AWS KMS\. You may deploy an overlay network \(such as VNS3 or Weave Net\) to ensure complete encryption of PHI transferred between containers or to provide a redundant layer of encryption\. Complete logging should also be enabled and all container logs should be directed to Amazon CloudWatch\. To design your AWS environment using the best practices for infrastructure security, see [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*\.
+
+## AWS Security Hub<a name="security-compliance-security-hub"></a>
+
+Use AWS Security Hub to monitor your usage of Amazon ECS as it relates to security best practices\. Security Hub uses controls to evaluate resource configurations and security standards to help you comply with various compliance frameworks\. For more information about using Security Hub to evaluate Amazon ECS resources, see [Amazon ECS controls ](https://docs.aws.amazon.com/securityhub/latest/userguide/ecs-controls.html)in the *AWS Security Hub User Guide*\.
 
 ## Recommendations<a name="security-compliance-recommendations"></a>
 
