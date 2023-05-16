@@ -120,7 +120,7 @@ We recommend that you scale each type of container independently based on demand
 
 ![\[Diagram showing the task definition of multiple containers with sidecars for extra functionality while keeping a single business function.\]](http://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/images/task-definition-sidecars.png)
 
-We don't recommend that you use multiple containers in a single task definition for grouping different types of application container\. The purpose of having multiple containers in a single task definition is so that you can deploy sidecars, small addon containers that enhance a single type of container\. A sidecar might help with logging and observability, traffic routing, or other addon features\.
+We don't recommend that you use multiple containers in a single task definition for grouping different types of application containers\. The purpose of having multiple containers in a single task definition is so that you can deploy sidecars, small addon containers that enhance a single type of container\. A sidecar might help with logging and observability, traffic routing, or other addon features\.
 
 We recommend that you use sidecars to attach extra functionality, but that the task has a single business function\.
 
